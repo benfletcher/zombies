@@ -1,6 +1,8 @@
+const zombies = require('../data-mock/zombies.json');
+
 const appRouter = (app) => {
-  app.get("*", (req, res) => {
-    res.send("testing");
+  app.get("/zombies", (req, res) => {
+    res.send(zombies);
   });
 
 };
