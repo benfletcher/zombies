@@ -3,6 +3,10 @@
 
 # Routes
 
+## Version
+- Currently `v1`
+- Prefix `v1` onto below routes
+
 ### `GET /zombies`
 - Full list of all zombies
 - Includes `ID` and `location`

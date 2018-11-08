@@ -1,11 +1,11 @@
-const zombie = require('../data-mock/zombie.json');
-const locations = require('../data-mock/location.json');
-
 const routes = require('express').Router();
+
+const zombies = require('../data-mock/zombie.json');
+const locations = require('../data-mock/location.json');
 
 // Reads
 routes.get("/zombies", (req, res) => {
-  res.send(zombie);
+  res.send(zombies);
 });
 
 routes.get("/locations", (req, res) => {
