@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Zombie John",
+    "location": 3,
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "Billie Brains",
+    "location": 2,
+    "active": true
+  },
+  {
+    "id": 3,
+    "name": "Hungry Jim",
+    "location": 1,
+    "active": true
+  },
+  {
+    "id": 4,
+    "name": "Zombie Zane",
+    "location": 1,
+    "active": true
+  }
+]

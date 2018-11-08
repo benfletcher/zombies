@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require("./routes/routes.js")(app);
+app.use('/v1', require("./routes/v1.js"));
 
 const server = app.listen(PORT, function () {
   console.log("Listening on port %s...", server.address().port);
