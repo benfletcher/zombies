@@ -1,31 +1,41 @@
-const routes = require('express').Router();
+"use strict";
 
-const zombies = require('../data-mock/zombie.json');
-const locations = require('../data-mock/location.json');
+const v1 = data => {
+  const routes = require('express').Router();
 
-// Reads
-routes.get("/zombies", (req, res) => {
-  res.send(zombies);
-});
+  console.log('booo!!', data);
 
-routes.get("/locations", (req, res) => {
-  res.send(locations);
-});
+  // Creates
+  routes.post("/zombies", ({ query: { name, location, locationId } }, res) => {
+    console.log(name, location, locationId);
 
-// Creates
-routes.post("/zombies", ({ query: { name, location } }, res) => {
-  console.log(name, location);
-  res.sendStatus(200);
-});
+    // TODO more informative error response
+    if (isValidName(name) && (isValidLocationName(location) || isValidLocationId(locationId))) {
+      return res.sendStatus(200);
+    }
 
-// Updates
-routes.put("/zombies/:id", ({ params: { id }, body }, res) => {
-  console.log(id);
-  console.log(body);
-  res.sendStatus(200);
-})
+    res.send({ "status": "error", "message": "missing or invalid parameter" });
+  });
 
-// Deletes
+  // Reads
+  routes.get("/zombies", (req, res) => {
+    res.send(zombies);
+  });
 
+  routes.get("/locations", (req, res) => {
+    res.send(locations);
+  });
 
-module.exports = routes;
+  // Updates
+  routes.put("/zombies/:id", ({ params: { id }, body }, res) => {
+    console.log(id);
+    console.log(body);
+    res.sendStatus(200);
+  })
+
+  // Deletes
+
+  return routes;
+};
+
+module.exports = v1;
