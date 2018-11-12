@@ -31,7 +31,7 @@ const v1 = data => {
     console.log(id);
     console.log(body);
     res.sendStatus(200);
-  })
+  });
 
   // Deletes
 
