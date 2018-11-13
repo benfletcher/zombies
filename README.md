@@ -13,7 +13,7 @@ As an MVP makes use of Mongo with Mongoose ORM. Very basic error handling.
 - Includes `ID` and `location`
 - Sample response body:
 
-```JSON
+```js
 [
     {
         "_id": "5bea878471b2c0a697d0956e",
