@@ -12,7 +12,7 @@ As an MVP makes use of Mongo with Mongoose ORM. Very basic error handling.
 ## Version
 - Currently `v1`
 
-##Deployed at:
+## Deployed at:
 
 ## https://zomben.herokuapp.com/v1/zombies
 
