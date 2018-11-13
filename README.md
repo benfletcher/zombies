@@ -3,6 +3,10 @@
 
 As an MVP makes use of Mongo with Mongoose ORM. Very basic error handling.
 
+
+# Database
+ MongoDB hosted at mLab in a free instance using 3.6 of the Mongo engine.
+
 # Routes
 
 ## Version
