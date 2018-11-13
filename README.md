@@ -50,3 +50,4 @@ As an MVP makes use of Mongo with Mongoose ORM. Very basic error handling.
 
 ### `PUT /v1/zombies/:name/:location`
 - Update the zombie with `:name` to new `:location`
+- (The updated value would normally be in the body, but left as a param here for expediency. If there were any other fields a PATCH could be used instead of a PUT.)
