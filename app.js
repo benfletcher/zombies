@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const mongoose = require('mongoose');
+mongoose.set('debug', true);
 mongoose.connect(process.env.MONGO_URL);
 
 app.use(require("morgan")('dev'));
