@@ -1,13 +1,14 @@
 # Zombies API
 #### Super simple zombie tracker API
 
+As an MVP makes use of Mongo with Mongoose ORM. Very basic error handling.
+
 # Routes
 
 ## Version
 - Currently `v1`
-- Prefix `v1` onto below routes
 
-### `GET /zombies`
+### `GET /v1/zombies`
 - Full list of all zombies
 - Includes `ID` and `location`
 - Sample response body:
@@ -15,44 +16,33 @@
 ```JSON
 [
     {
-        "name": "Zombie John",
-        "location": "Warehouse"
+        "_id": "5bea878471b2c0a697d0956e",
+        "name": "Johnny Zombman",
+        "location": "School",
+        "__v": 0
     },
     {
-        "name": "Billie Brains",
-        "location": "Wall"
+        "_id": "5bea89f4cd6ab1a7e9661cb1",
+        "name": "Jenny Brains",
+        "location": "Warehouse",
+        "__v": 0
+    },
+    {
+        "_id": "5bea8d3f04b95aa8eae49657",
+        "name": "Ben",
+        "location": "Hospital",
+        "__v": 0
     }
 ]
 ```
 
-### `GET /locations`
-- Full list of all possible zombie locations
-- Includes `ID`
-- Sample response body:
 
-```JSON
-[
-    {
-        "ID": 1,
-        "name": "School"
-    },
-    {
-        "ID": 2,
-        "name": "Hospital"
-    },
-    {
-        "ID": 3,
-        "name": "Warehouse"
-    }
-]
-```
-
-### `GET /zombies/:id`
-- Get zombie with `:id`
-- Includes `ID` and `locationID`
-
-### `POST /zombies`
+### `POST /v1/zombies/:name/:location`
 - Add new zombie
-- Body
+- Params
   - `name`
   - `location`
+
+
+### `PUT /v1/zombies/:name/:location`
+- Update the zombie with `:name` to new `:location`

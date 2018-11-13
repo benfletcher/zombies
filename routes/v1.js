@@ -5,7 +5,7 @@ const Zombie = require("../models/zombie");
 const v1 = () => {
   const routes = require('express').Router();
 
-  routes.post("/zombies", ({ query: { name, location } }, res) => {
+  routes.post("/zombies/:name/:location", ({ params: { name, location } }, res) => {
     Zombie
       .create({ name, location })
       .then(doc => res.send(doc))
