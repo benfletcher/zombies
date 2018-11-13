@@ -16,8 +16,6 @@ const data = {
   nextZombieId: Math.max(...data.zombieIds) + 1,
   nextLocationId: Math.max(...data.locationIds) + 1,
 
-  // TODO: internationalization
-  // Will use ORM for sanitizing, this more a placeholder
   isValidName: input =>
     input.length && input.test(/^[a-z ]*$/y),
 
@@ -28,12 +26,12 @@ const data = {
     data.locationIds.has(id),
 
   createZombie: ({ name, location, locationId }) => {
-    const newId = locationId ||
+    const newId = locationId || 0;
 
-      data.zombie.push({
-        id: data.nextZombieId,
-        name,
-        locationId:
+    data.zombie.push({
+      id: 0,
+      name,
+      locationId
     })
   },
 };

@@ -1,29 +1,22 @@
 "use strict";
 
-const v1 = data => {
+const Zombie = require("../models/zombie");
+
+const v1 = () => {
   const routes = require('express').Router();
 
-  console.log('booo!!', data);
-
   // Creates
-  routes.post("/zombies", ({ query: { name, location, locationId } }, res) => {
-    console.log(name, location, locationId);
-
-    // TODO more informative error response
-    if (isValidName(name) && (isValidLocationName(location) || isValidLocationId(locationId))) {
-      return res.sendStatus(200);
-    }
-
-    res.send({ "status": "error", "message": "missing or invalid parameter" });
+  routes.post("/zombies", ({ query: { name, location } }, res) => {
+    Zombie
+      .create({ name, location })
+      .then(doc => res.send(doc))
+      .catch(err => res.sendStatus(404));
   });
 
   // Reads
   routes.get("/zombies", (req, res) => {
+    Zombie.find()
     res.send(zombies);
-  });
-
-  routes.get("/locations", (req, res) => {
-    res.send(locations);
   });
 
   // Updates
